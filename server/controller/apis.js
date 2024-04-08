@@ -12,5 +12,9 @@ export const getDocument = async (id) => {
 }
 
 export const updateDocument = async (id, data) => {
+    // console.log("called");
+    const doc=Document.findById(id);
+    // console.log(doc);
+    // console.log(data.ops);
     return await Document.findByIdAndUpdate(id, { data });
 }

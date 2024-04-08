@@ -23,7 +23,6 @@ io.on('connection', socket => {
         socket.emit('load-document', document.data);
 
         socket.on('send-changes', delta => {
-            console.log(delta);
             socket.broadcast.to(documentId).emit('receive-changes', delta);
         })
 
@@ -33,27 +32,3 @@ io.on('connection', socket => {
     })
 });
 
-io.on("connection", (socket) => {
-    socket.on('get-document', async documentId => {
-        const document = await getDocument(documentId);
-        socket.join(documentId);
-        socket.emit('load-document', document.data);
-
-        socket.on('send-changes', delta => {
-            socket.broadcast.to(documentId).emit('receive-changes', delta);
-        })
-
-        socket.on('save-document', async data => {
-            await updateDocument(documentId, data);
-        })
-    })
-  });
-  
-//   // client-side
-//   socket.on("connect", () => {
-//     console.log(socket.id); // x8WIv7-mJelg7on_ALbx
-//   });
-  
-//   socket.on("disconnect", () => {
-//     console.log(socket.id); // undefined
-//   });
