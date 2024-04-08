@@ -46,7 +46,7 @@ const Editor = () => {
 
     useEffect(() => {
         //console.log('Setting up Socket');
-        const socketServer = io('http://localhost:9000');
+        const socketServer = io('https://doc-sharing-app-production.up.railway.app');
         setSocket(socketServer);
 
         return () => {
@@ -89,7 +89,7 @@ const Editor = () => {
             //console.log('Cleaning up receive-changes event listener');
             socket.off('receive-changes', handleChange);
         }
-    }, [socket]);
+    }, [quill,socket]);
 
     useEffect(() => {
         if (quill === null || socket === null) return;
