@@ -2,7 +2,7 @@ import { Server } from 'socket.io';
 
 import Connection from './database/db.js';
 
-import { getDocument, updateDocument } from '../server/controller/apis.js'
+import { getDocument, updateDocument } from './controller/apis.js'
 
 const PORT = process.env.PORT || 9000;
 
