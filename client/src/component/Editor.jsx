@@ -46,7 +46,7 @@ const Editor = () => {
 
     useEffect(() => {
         //console.log('Setting up Socket');
-        const socketServer = io('https://doc-sharing-app-production.up.railway.app');
+        const socketServer = io('http://doc-sharing-app-production.up.railway.app');
         setSocket(socketServer);
 
         return () => {
