@@ -3,7 +3,10 @@
     "builds": [
         {
             "src": "./index.js",
-            "use": "@vercel/node"
+            "use": "@vercel/node",
+            "config": {
+                "node": "--experimental-modules --es-module-specifier-resolution=node"
+              }
         }
     ],
     "routes": [
